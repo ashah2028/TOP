@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tooth Time Dental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00ffe0;
+      --secondary: #8a2be2;
+      --background: #0a0a1f;
+      --card-bg: #111129;
+      --text: #e0e0f0;
+      --accent: #ff6ac1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--primary);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    nav a {
+      margin-left: 2rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #111129 0%, #1a1a3d 100%);
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .hero-overlay {
+      background-color: rgba(10, 10, 30, 0.7);
+      padding: 6rem 2rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      color: #000;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: var(--secondary);
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      flex: 1 1 250px;
+      text-align: center;
+      border: 1px solid var(--primary);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #080816;
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Tooth Time</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="background: url('images/hero-dental.jpg') center/cover no-repeat;">
+    <div class="hero-overlay">
+      <h1>Futuristic Dental Care</h1>
+      <p>Your comfort, our technology. Blending advanced care with a personal touch.</p>
+      <button class="btn">Book an Appointment</button>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/ai-diagnosis.jpg" alt="AI Diagnostics" style="width:100%; border-radius:10px; margin-bottom: 1rem;">
+        <h3>AI Diagnostics</h3>
+        <p>Cutting-edge imaging for accurate treatment planning.</p>
+      </div>
+      <div class="card">
+        <img src="images/cleaning.jpg" alt="Smart Cleanings" style="width:100%; border-radius:10px; margin-bottom: 1rem;">
+        <h3>Smart Cleanings</h3>
+        <p>Comfort-focused ultrasonic cleanings guided by sensors.</p>
+      </div>
+      <div class="card">
+        <img src="images/surgery.jpg" alt="Robotic Surgery" style="width:100%; border-radius:10px; margin-bottom: 1rem;">
+        <h3>Robotic Surgery</h3>
+        <p>Minimally invasive precision procedures for better outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Tooth Time</h2>
+    <p style="text-align: center; max-width: 700px; margin: auto;">
+      At Tooth Time, we combine science fiction with reality. Our mission is to deliver high-tech dental solutions with a human touch. Whether it’s a routine cleaning or a full smile restoration, we use the latest technology to ensure comfort, safety, and precision.
+    </p>
+  </section>
+
+  <section class="section team" id="team">
+    <h2>Meet Our Team</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/dr-smith.jpg" alt="Dr. Smith" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+        <h3>Dr. Emily Smith</h3>
+        <p>Lead Dentist with 15+ years of experience in family and cosmetic care.</p>
+      </div>
+      <div class="card">
+        <img src="images/hygienist.jpg" alt="Hygienist" style="width:100%; border-radius: 10px; margin-bottom: 1rem;">
+        <h3>Alex Rivera</h3>
+        <p>Registered Dental Hygienist who ensures each cleaning is precise and painless.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align: center; max-width: 700px; margin: auto;">
+      Reach out to schedule a consultation or ask about our services. We’re here to help you smile into the future.
+    </p>
+    <p style="text-align: center; margin-top: 1rem;">
+      Email: contact@toothtime.com | Phone: (123) 456-7890
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Tooth Time Dental Studio. All rights reserved.
+  </footer> 
+</body>
+</html>

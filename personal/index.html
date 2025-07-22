@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnav Shah | Futuristic Project Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-pink: #ff0080;
+            --neon-purple: #8b5cf6;
+            --electric-blue: #0066ff;
+            --dark-void: #020010;
+            --deep-space: #0a0a1a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-glow: #e0e7ff;
+            --text-dim: #94a3b8;
+            --hologram: linear-gradient(45deg, #00ffff 0%, #ff0080 25%, #8b5cf6 50%, #00ffff 75%, #ff0080 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-void);
+            color: var(--text-glow);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Matrix Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 75% 75%, rgba(255, 0, 128, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(0, 255, 255, 0.02) 50%, transparent 70%);
+            animation: matrixFlow 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        /* Floating Geometric Elements */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(0, 255, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 0, 128, 0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(139, 92, 246, 0.4), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(0, 255, 255, 0.2), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: particleFloat 20s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        @keyframes matrixFlow {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            25% { 
+                transform: translate(-10px, -10px) rotate(1deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translate(10px, -5px) rotate(-1deg);
+                opacity: 0.9;
+            }
+            75% { 
+                transform: translate(-5px, 10px) rotate(0.5deg);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        /* Header with Holographic Effect */
+        .header {
+            background: rgba(2, 0, 16, 0.95);
+            backdrop-filter: blur(25px) saturate(180%);
+            border-bottom: 2px solid transparent;
+            border-image: var(--hologram) 1;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: var(--hologram);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: hologramShift 3s ease-in-out infinite, logoGlow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes hologramShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes logoGlow {
+            from { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 0, 128, 0.8)); }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--hologram);
+            background-size: 200% 200%;
+            animation: hologramShift 2s ease-in-out infinite;
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a:hover::before {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--glass-border);
+            color: var(--neon-cyan) !important;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--hologram);
+            opacity: 0.1;
+            transition: left 0.4s ease;
+        }
+
+        .contact-btn:hover::before {
+            left: 0;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Hero Section - Cyberpunk Style */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: 
+                radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(255, 0, 128, 0.06) 0%, transparent 50%);
+            overflow: hidden;
+        }
+
+        /* Hexagonal Grid Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, transparent 35%, rgba(0, 255, 255, 0.03) 35%, rgba(0, 255, 255, 0.03) 36%, transparent 36%),
+                linear-gradient(-30deg, transparent 35%, rgba(0, 255, 255, 0.03) 35%, rgba(0, 255, 255, 0.03) 36%, transparent 36%),
+                linear-gradient(90deg, transparent 35%, rgba(255, 0, 128, 0.02) 35%, rgba(255, 0, 128, 0.02) 36%, transparent 36%);
+            background-size: 120px 70px;
+            animation: gridPulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+        }
+
+        /* Floating Holographic Rings */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 400px;
+            height: 400px;
+            border: 3px solid transparent;
+            border-image: var(--hologram) 1;
+            border-radius: 50%;
+            animation: ringFloat 12s ease-in-out infinite, ringRotate 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes ringFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        @keyframes ringRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: var(--hologram);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            animation: hologramShift 4s ease-in-out infinite, textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 0, 128, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 255, 0.1);
+            transition: left 0.4s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--neon-pink);
+            color: var(--neon-pink);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 128, 0.1);
+            transition: left 0.4s ease;
+        }
+
+        .btn-secondary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 0, 128, 0.4);
+            text-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
+        }
+
+        /* Services - Hexagonal Layout */
+        .services {
+            padding: 100px 2rem;
+            position: relative;
+            background: 
+                linear-gradient(45deg, rgba(10, 10, 26, 0.8) 0%, rgba(2, 0, 16, 0.9) 100%),
+                radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            background: var(--hologram);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            animation: hologramShift 4s ease-in-out infinite;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* Hexagonal Grid for Services */
+        .services-hex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-hex {
+            width: 300px;
+            height: 300px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--glass-border);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.6s ease;
+            position: relative;
+            margin: 1rem;
+        }
+
+        .service-hex::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--hologram);
+            opacity: 0;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transition: opacity 0.6s ease;
+            background-size: 400% 400%;
+            animation: hologramShift 3s ease-in-out infinite;
+        }
+
+        .service-hex:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-hex:hover {
+            transform: scale(1.1) translateY(-10px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2);
+        }
+
+        .service-hex .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-hex h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-hex p {
+            color: var(--text-dim);
+            line-height: 1.5;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* About Section - Holographic Design */
+        .about {
+            padding: 100px 2rem;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(255, 0, 128, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(0, 255, 255, 0.06) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(0, 255, 255, 0.03) 60deg,
+                transparent 120deg,
+                rgba(255, 0, 128, 0.03) 180deg,
+                transparent 240deg,
+                rgba(139, 92, 246, 0.03) 300deg,
+                transparent 360deg
+            );
+            animation: conicRotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes conicRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--hologram);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            animation: hologramShift 4s ease-in-out infinite;
+        }
+
+        .about-text p {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .about-hologram {
+            height: 500px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hologram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0, 255, 255, 0.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(255, 0, 128, 0.05) 50%, transparent 70%);
+            animation: hologramScan 3s ease-in-out infinite;
+        }
+
+        @keyframes hologramScan {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .about-hologram-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0.8;
+        }
+
+        /* Contact Section - Terminal Style */
+        .contact {
+            padding: 100px 2rem;
+            background: var(--deep-space);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                rgba(0, 255, 255, 0.02) 1px,
+                transparent 2px,
+                transparent 4px
+            );
+            pointer-events: none;
+            animation: scanlines 2s linear infinite;
+        }
+
+        @keyframes scanlines {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(4px); }
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 15px;
+            padding: 2rem;
+            font-family: 'Orbitron', monospace;
+            box-shadow: 
+                inset 0 0 20px rgba(0, 255, 255, 0.1),
+                0 0 40px rgba(0, 255, 255, 0.2);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--neon-cyan);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 0.5rem;
+            margin-right: 1rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .terminal-dot:nth-child(2) {
+            background: #ffff00;
+            box-shadow: 0 0 10px #ffff00;
+        }
+
+        .terminal-dot:nth-child(3) {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .terminal-title {
+            color: var(--neon-cyan);
+            font-size: 1.1rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .contact-info p {
+            color: var(--text-glow);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--neon-cyan);
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text-glow);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.2),
+                inset 0 0 10px rgba(0, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-dim);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer - Neon Style */
+        .footer {
+            background: var(--dark-void);
+            color: var(--text-dim);
+            text-align: center;
+            padding: 3rem;
+            border-top: 2px solid transparent;
+            border-image: var(--hologram) 1;
+            font-family: 'Orbitron', monospace;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--hologram);
+            background-size: 400% 400%;
+            animation: hologramShift 3s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-hex-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-hex {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Arnav's Base</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="contact-btn">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>Projects</h1>
+            <p>Learn more about my journey as I learn and utilize new technologies to improve my skills!</p>
+            <div class="hero-buttons">
+                <a href="#contact" class
