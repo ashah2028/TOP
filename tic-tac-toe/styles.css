@@ -1,0 +1,52 @@
+body{
+  background-color: rgb(65, 65, 190);
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  text-align: center;
+  border-radius: 10px;
+  width: 400px;
+  margin: auto;
+  margin-top: 75px;
+  background-color: aqua;
+  box-shadow: 0px 10px 36px 16px rgba(0,0,0,0.1);
+}
+
+.game-title{
+  padding-top: 30px;
+}
+
+.game-board{
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  gap: 1px; /* space between cells becomes the grid lines */
+  background-color: slateblue; /* this color will show as the lines */
+  padding: 1px; /* outer border */
+  width: fit-content;
+  margin: 120px auto;
+}
+
+.cell{
+  width: 50px;
+  height: 50px;
+  background-color: aliceblue;
+  cursor: pointer;
+  line-height: 50px;
+  font-size: 20px;
+  
+}
+.game-message{
+  margin-top: 20px;
+  height: 30px;
+}
+
+button{
+  margin-bottom: 20px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(152, 219, 219);
+  cursor: pointer;
+}
